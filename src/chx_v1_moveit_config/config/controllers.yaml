@@ -1,0 +1,19 @@
+controller_list:
+  - name: chx_arm
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint0
+      - joint1
+      - joint2
+      - joint3
+controller_list:
+  - name: gripper
+    action_ns: gripper_action
+    type: GripperCommand
+    default: true
+    joints:
+      - joint4
+      - joint5
+

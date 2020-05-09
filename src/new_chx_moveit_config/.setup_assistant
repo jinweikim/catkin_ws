@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: chx_arm
+    relative_path: urdf/chx_arm.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/chx_arm.srdf
+  CONFIG:
+    author_name: jinwei
+    author_email: jinweikim@gmail.com
+    generated_timestamp: 1584719117

@@ -1,0 +1,2 @@
+anno_description:anno_moveit_config:arm:arm_moveit_config:chx_arm:chx_moveit_config:chx_v1_moveit_config:chxb_moveit_config:moveit_interface:new_chx_moveit_config:rob_control:rob_control_v1:ros_arduino_bridge/ros_arduino_bridge:ros_arduino_bridge/ros_arduino_firmware:ros_arduino_bridge/ros_arduino_msgs:ros_arduino_bridge/ros_arduino_python
+-DCATKIN_DEVEL_PREFIX=/home/jinwei/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jinwei/catkin_ws/install -G Unix Makefiles

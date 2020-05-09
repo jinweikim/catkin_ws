@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: anno_description
+    relative_path: urdf/anno_v6.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/anno_v6.srdf
+  CONFIG:
+    author_name: jinwei
+    author_email: jinweikim@gmail.com
+    generated_timestamp: 1578655609
