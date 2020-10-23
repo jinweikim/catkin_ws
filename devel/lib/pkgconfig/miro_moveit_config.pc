@@ -1,0 +1,8 @@
+prefix=/home/jinwei/catkin_ws/devel
+
+Name: miro_moveit_config
+Description: Description of miro_moveit_config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

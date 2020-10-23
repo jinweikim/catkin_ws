@@ -3,7 +3,7 @@
 import rospy
 import copy
 import math
-from Robot import *
+from Robot import Robot
 
 
 #屏幕类，用于记录屏幕信息
@@ -69,10 +69,10 @@ class Position:
 
     def getVerticalPos(self,distance):
 
-        angle = math.pi/2 - self.roll
+        angle = self.roll
 
         x = self.x
-        y = self.y + distance*math.sin(angle)
+        y = self.y - distance*math.sin(angle)
         z = self.z + distance*math.cos(angle)
         
         newPos = Position(x,y,z,self.roll,self.pitch,self.yaw)
@@ -126,11 +126,15 @@ class Rcs3D:
     robot = Robot()
 
     def reset(self):
-        self.robot.move('home')
+        self.robot.goHome()
 
     def click(self,point):
 
         print "in click"
+
+        print "robot will click the point"
+
+        print point
 
         #position = screen.get_3D_position(position)#获取三维坐标
 
@@ -138,15 +142,21 @@ class Rcs3D:
 
         pos = self.point_to_position(point)
 
-        up_pos = pos.getVerticalPos(0.2)#获取目标点正上方位置处一点
+        up_pos = pos.getVerticalPos(0.02)#获取目标点正上方位置处一点
 
         self.robot.move(up_pos)#移动到目标上方位置
+
+        print "move to up position"
 
 #        old_pos = copy.deepcopy(pos)#深拷贝，避免引用同一对象
 
         self.robot.move(pos)#移动到目标位置
 
+        print "move to position"
+
         self.robot.move(up_pos)#返回上方位置
+
+        print "back to position"
 
     def hide(self):
 
@@ -177,10 +187,16 @@ class Rcs3D:
         swipe_pos = pos.getSwipePos(0.2,direction)#获取滑动目的地坐标
 
         self.robot.move(up_pos)#移动到目标上方位置
+        
+        print "move to up position"
 
         self.robot.move(pos)#移动到目标位置
 
+        print "move to position"
+
         self.robot.move(swipe_pos)#滑动
+
+        print "start to swipe"
 
         up_swipe_pose = swipe_pos.getVerticalPos(0.2)#获取滑动目的地的上方位置
 
@@ -205,17 +221,17 @@ class Rcs3D:
 
     def point_to_position(self,point):
 
-        roll =  math.pi/2 - self.screen.angle#根据屏幕角度值计算roll值
+        roll =  self.screen.angle#根据屏幕角度值计算roll值
 
         pos = Position(point[0],point[1],point[2],roll,0,0)#将point点变为带有rpy的position
 
         return pos
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
+# print "in main"
 
-print "in main"
-
-rcs3D = Rcs3D()
+# rcs3D = Rcs3D()
 
 #90度
 #pos = Position(0.6004,-0.6723,0.6489,1.5707,0,0)
@@ -223,9 +239,9 @@ rcs3D = Rcs3D()
 #45度
 #pos = Position(0.6004,-0.6723,0.6489,0.78535,0,0)
 
-point = [0.6004,-0.90,0.6489]
-
-rcs3D.click(point)
+# point = [0.6004,-0.90,0.6489]
+# point2 = [0,-0.9,0]
+# rcs3D.click(point2)
 #rcs3D.hide()
 #rcs3D.swipe(point,'up')
 

@@ -1,0 +1,8 @@
+prefix=/home/jinwei/catkin_ws/install
+
+Name: learm
+Description: Description of learm
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

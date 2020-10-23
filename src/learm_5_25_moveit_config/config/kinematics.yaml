@@ -1,0 +1,5 @@
+arm:
+  kinematics_solver: trac_ik_kinematics_plugin/TRAC_IKKinematicsPlugin
+  kinematics_solver_attmpts: 3
+  kinematics solver search resolution: 0.005
+  

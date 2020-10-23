@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="learm_5_25">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.46385237980473E-06 0.0254977102058984 0.0305564348363482"
+        rpy="0 0 0" />
+      <mass
+        value="0.17619713237721" />
+      <inertia
+        ixx="0.000798111880764019"
+        ixy="8.18703865429116E-08"
+        ixz="-3.94345336429032E-08"
+        iyy="0.000317952999149377"
+        iyz="0.000127554150564884"
+        izz="0.00084263858295119" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.949019607843137 0.756862745098039 0.176470588235294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link0">
+    <inertial>
+      <origin
+        xyz="0.00224451522426888 1.05560671126992E-05 0.0154944104510803"
+        rpy="0 0 0" />
+      <mass
+        value="0.0286579374199262" />
+      <inertia
+        ixx="5.30819404271062E-06"
+        ixy="-5.57403498238814E-08"
+        ixz="-8.0742594562955E-08"
+        iyy="4.98912764783618E-06"
+        iyz="7.16693759936086E-09"
+        izz="7.58530025869853E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint0"
+    type="revolute">
+    <origin
+      xyz="0 0 0.06975"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link0" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5707"
+      upper="1.5707"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0.0275226686028112 2.76349856609404E-08 0.0506788490451032"
+        rpy="0 0 0" />
+      <mass
+        value="0.0198914095628994" />
+      <inertia
+        ixx="2.48620631283226E-05"
+        ixy="-1.39734204803498E-11"
+        ixz="3.27759383947162E-07"
+        iyy="3.56469935698872E-05"
+        iyz="2.77403946115186E-11"
+        izz="1.26982753344168E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="-0.02654 -0.01 0.01675"
+      rpy="0 0 0" />
+    <parent
+      link="link0" />
+    <child
+      link="link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5707"
+      upper="1.5707"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.0284558473177569 -1.29064357302366E-05 0.0232660143334867"
+        rpy="0 0 0" />
+      <mass
+        value="0.037295726885176" />
+      <inertia
+        ixx="2.59024674913942E-05"
+        ixy="1.06704891413493E-08"
+        ixz="8.6438772080701E-08"
+        iyy="3.3218739689147E-05"
+        iyz="3.14040378589029E-08"
+        izz="1.02627810402498E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.104"
+      rpy="0 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5707"
+      upper="1.5707"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.024315608353302 -0.0122137148801496 0.0184633293651121"
+        rpy="0 0 0" />
+      <mass
+        value="0.047272278331732" />
+      <inertia
+        ixx="2.80012896238346E-05"
+        ixy="-1.52529513704552E-07"
+        ixz="3.37277771247991E-07"
+        iyy="2.31249789189665E-05"
+        iyz="-2.54592001965734E-07"
+        izz="1.41850933655293E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="-0.0022101 0 0.08852"
+      rpy="0 0 0" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.5707"
+      upper="1.5707"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="-0.00188220291887803 -0.0100027871080556 0.038335858540356"
+        rpy="0 0 0" />
+      <mass
+        value="0.0416048632001602" />
+      <inertia
+        ixx="2.73037587589265E-05"
+        ixy="-5.9736016097338E-09"
+        ixz="-3.77602897355887E-07"
+        iyy="2.95058876308224E-05"
+        iyz="-3.87245767117971E-06"
+        izz="2.07007345443875E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://learm_5_25/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0.025281 -0.0007415 0.061651"
+      rpy="0 0 0" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5707"
+      upper="1.5707"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link name="gripper"/>
+  <joint name="gripper_joint" type="fixed">
+    <orignin 
+        xyz="0 0 0.12" 
+        rpy="0 0 0"/>
+    <parent
+      link="link4"/>
+    <child
+      link="gripper"/>
+  </joint>
+</robot>

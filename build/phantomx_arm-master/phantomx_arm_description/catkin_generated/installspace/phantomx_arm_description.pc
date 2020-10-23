@@ -1,0 +1,8 @@
+prefix=/home/jinwei/catkin_ws/install
+
+Name: phantomx_arm_description
+Description: Description of phantomx_arm_description
+Version: 0.3.3
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

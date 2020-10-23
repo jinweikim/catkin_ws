@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(moveit_interface_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/jinwei/catkin_ws/devel/include " STREQUAL " ")
   set(moveit_interface_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/jinwei/catkin_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/jinwei/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/jinwei/catkin_ws/devel/lib;/home/jinwei/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(moveit_interface_EXPORTED_TARGETS "")
+set(moveit_interface_EXPORTED_TARGETS "moveit_interface_generate_messages_cpp;moveit_interface_generate_messages_eus;moveit_interface_generate_messages_lisp;moveit_interface_generate_messages_nodejs;moveit_interface_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${moveit_interface_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   list(APPEND moveit_interface_EXPORTED_TARGETS ${${moveit_interface_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "moveit_interface-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${moveit_interface_DIR}/${extra})

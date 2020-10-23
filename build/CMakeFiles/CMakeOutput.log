@@ -580,3 +580,35 @@ Linking C executable cmTC_2bcf2
 make[1]: Leaving directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the function sgemm_ exists passed with the following output:
+Change Dir: /home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_efaa9/fast"
+make[1]: Entering directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_efaa9.dir/build.make CMakeFiles/cmTC_efaa9.dir/build
+make[2]: Entering directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_efaa9.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_efaa9.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_efaa9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efaa9.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_efaa9.dir/CheckFunctionExists.c.o  -o cmTC_efaa9 -rdynamic /usr/lib/libblas.so 
+make[2]: Leaving directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function cheev_ exists passed with the following output:
+Change Dir: /home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2314e/fast"
+make[1]: Entering directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_2314e.dir/build.make CMakeFiles/cmTC_2314e.dir/build
+make[2]: Entering directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2314e.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=cheev_   -o CMakeFiles/cmTC_2314e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2314e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2314e.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_2314e.dir/CheckFunctionExists.c.o  -o cmTC_2314e -rdynamic /usr/lib/liblapack.so /usr/lib/libblas.so 
+make[2]: Leaving directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/jinwei/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+

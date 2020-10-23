@@ -1,0 +1,5 @@
+<launch>
+   <node name="five_arm_follow_controller" pkg="python_serial" type="five_arm_follow_controller.py" output="screen">
+      
+   </node>
+</launch>

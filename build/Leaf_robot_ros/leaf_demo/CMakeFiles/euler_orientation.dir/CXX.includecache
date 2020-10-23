@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jinwei/catkin_ws/src/Leaf_robot_ros/leaf_demo/src/euler_orientation.cpp
+iostream
+-
+math.h
+-
+

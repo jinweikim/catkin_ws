@@ -1,0 +1,74 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"arm_base_link" [label="arm_base_link"];
+"arm_shoulder_pan_servo_link" [label="arm_shoulder_pan_servo_link"];
+"arm_shoulder_pan_link" [label="arm_shoulder_pan_link"];
+"arm_shoulder_lift_servo_link" [label="arm_shoulder_lift_servo_link"];
+"arm_shoulder_lift_link" [label="arm_shoulder_lift_link"];
+"arm_shoulder_F10_0_link" [label="arm_shoulder_F10_0_link"];
+"arm_shoulder_F10_1_link" [label="arm_shoulder_F10_1_link"];
+"arm_shoulder_F10_2_link" [label="arm_shoulder_F10_2_link"];
+"arm_shoulder_F3_0_link" [label="arm_shoulder_F3_0_link"];
+"arm_elbow_flex_servo_link" [label="arm_elbow_flex_servo_link"];
+"arm_elbow_flex_link" [label="arm_elbow_flex_link"];
+"arm_elbow_F10_0_link" [label="arm_elbow_F10_0_link"];
+"arm_elbow_F10_1_link" [label="arm_elbow_F10_1_link"];
+"arm_elbow_F10_2_link" [label="arm_elbow_F10_2_link"];
+"arm_elbow_F3_0_link" [label="arm_elbow_F3_0_link"];
+"arm_wrist_flex_servo_link" [label="arm_wrist_flex_servo_link"];
+"arm_wrist_flex_link" [label="arm_wrist_flex_link"];
+"arm_wrist_F3_0_link" [label="arm_wrist_F3_0_link"];
+"gripper_servo_link" [label="gripper_servo_link"];
+"gripper_active2_link" [label="gripper_active2_link"];
+"gripper_finger_base_link" [label="gripper_finger_base_link"];
+"gripper_active_link" [label="gripper_active_link"];
+"gripper_link" [label="gripper_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "arm_base_joint" [label="xyz: 0.1 0.03 0.435 \nrpy: 0 -0 0"]
+"arm_base_joint" -> "arm_base_link"
+"arm_base_link" -> "arm_shoulder_pan_servo_joint" [label="xyz: 0 0 0 \nrpy: 1.57079 -5.55112e-17 1.57079"]
+"arm_shoulder_pan_servo_joint" -> "arm_shoulder_pan_servo_link"
+"arm_shoulder_pan_servo_link" -> "arm_shoulder_pan_joint" [label="xyz: 0 0.019 0 \nrpy: 0 1.5708 4.71239"]
+"arm_shoulder_pan_joint" -> "arm_shoulder_pan_link"
+"arm_shoulder_pan_link" -> "arm_shoulder_lift_servo_joint" [label="xyz: 0 0 -0.0415 \nrpy: 3.14159 2.65359e-06 3.14159"]
+"arm_shoulder_lift_servo_joint" -> "arm_shoulder_lift_servo_link"
+"arm_shoulder_lift_servo_link" -> "arm_shoulder_lift_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"arm_shoulder_lift_joint" -> "arm_shoulder_lift_link"
+"arm_shoulder_lift_link" -> "arm_shoulder_F10_0_joint" [label="xyz: 0 0 0.0545 \nrpy: 0 -0 0"]
+"arm_shoulder_F10_0_joint" -> "arm_shoulder_F10_0_link"
+"arm_shoulder_F10_0_link" -> "arm_shoulder_F10_1_joint" [label="xyz: 0 0 0.004 \nrpy: 0 -0 0"]
+"arm_shoulder_F10_1_joint" -> "arm_shoulder_F10_1_link"
+"arm_shoulder_F10_1_link" -> "arm_shoulder_F10_2_joint" [label="xyz: 0 0 0.004 \nrpy: 0 -0 0"]
+"arm_shoulder_F10_2_joint" -> "arm_shoulder_F10_2_link"
+"arm_shoulder_F10_2_link" -> "arm_shoulder_F3_0_joint" [label="xyz: 0 0 0.002 \nrpy: 3.14159 2.65359e-06 3.14159"]
+"arm_shoulder_F3_0_joint" -> "arm_shoulder_F3_0_link"
+"arm_shoulder_F3_0_link" -> "arm_elbow_flex_servo_joint" [label="xyz: 0 0 -0.0415 \nrpy: 3.14159 2.65359e-06 3.14159"]
+"arm_elbow_flex_servo_joint" -> "arm_elbow_flex_servo_link"
+"arm_elbow_flex_servo_link" -> "arm_elbow_flex_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"arm_elbow_flex_joint" -> "arm_elbow_flex_link"
+"arm_elbow_flex_link" -> "arm_elbow_F10_0_joint" [label="xyz: 0 0 0.0545 \nrpy: 0 -0 0"]
+"arm_elbow_F10_0_joint" -> "arm_elbow_F10_0_link"
+"arm_elbow_F10_0_link" -> "arm_elbow_F10_1_joint" [label="xyz: 0 0 0.004 \nrpy: 0 -0 0"]
+"arm_elbow_F10_1_joint" -> "arm_elbow_F10_1_link"
+"arm_elbow_F10_1_link" -> "arm_elbow_F10_2_joint" [label="xyz: 0 0 0.004 \nrpy: 0 -0 0"]
+"arm_elbow_F10_2_joint" -> "arm_elbow_F10_2_link"
+"arm_elbow_F10_2_link" -> "arm_elbow_F3_0_joint" [label="xyz: 0 0 0.002 \nrpy: 3.14159 2.65359e-06 3.14159"]
+"arm_elbow_F3_0_joint" -> "arm_elbow_F3_0_link"
+"arm_elbow_F3_0_link" -> "arm_wrist_flex_servo_joint" [label="xyz: 0 0 -0.0415 \nrpy: 3.14159 2.65359e-06 3.14159"]
+"arm_wrist_flex_servo_joint" -> "arm_wrist_flex_servo_link"
+"arm_wrist_flex_servo_link" -> "arm_wrist_flex_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"arm_wrist_flex_joint" -> "arm_wrist_flex_link"
+"arm_wrist_flex_link" -> "arm_wrist_F3_0_joint" [label="xyz: 0 0 0.0265 \nrpy: 3.14159 2.65359e-06 2.65359e-06"]
+"arm_wrist_F3_0_joint" -> "arm_wrist_F3_0_link"
+"arm_wrist_F3_0_link" -> "gripper_servo_joint" [label="xyz: 0 0 -0.019 \nrpy: -1.5708 2.65359e-06 -1.5708"]
+"gripper_servo_joint" -> "gripper_servo_link"
+"gripper_servo_link" -> "gripper2_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"gripper2_joint" -> "gripper_active2_link"
+"gripper_servo_link" -> "gripper_finger_base_joint" [label="xyz: 0.01 0.038 0 \nrpy: -1.5708 -2.65359e-06 -1.5708"]
+"gripper_finger_base_joint" -> "gripper_finger_base_link"
+"gripper_servo_link" -> "gripper_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"gripper_joint" -> "gripper_active_link"
+"arm_wrist_flex_link" -> "gripper_link_joint" [label="xyz: 0 0 0.112 \nrpy: 0 -1.5708 0"]
+"gripper_link_joint" -> "gripper_link"
+}

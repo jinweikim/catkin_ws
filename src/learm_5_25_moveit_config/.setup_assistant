@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: learm_5_25
+    relative_path: urdf/learm_5_25.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/learm.srdf
+  CONFIG:
+    author_name: jinwei
+    author_email: jinweikim@gmail.com
+    generated_timestamp: 1590817713

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: leaf_description
+    relative_path: urdf/leaf.urdf
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/leaf.srdf
+  CONFIG:
+    author_name: jinwei
+    author_email: jinweikim@gmail.com
+    generated_timestamp: 1596083781

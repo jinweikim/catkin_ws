@@ -1,0 +1,8 @@
+prefix=/home/jinwei/catkin_ws/install
+
+Name: mirobot_gazebo
+Description: Description of mirobot_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

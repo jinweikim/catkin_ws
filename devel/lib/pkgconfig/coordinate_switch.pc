@@ -1,0 +1,8 @@
+prefix=/home/jinwei/catkin_ws/devel
+
+Name: coordinate_switch
+Description: Description of coordinate_switch
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

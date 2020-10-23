@@ -1,0 +1,8 @@
+prefix=/home/jinwei/catkin_ws/install
+
+Name: mirobot_urdf_2
+Description: Description of mirobot_urdf_2
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

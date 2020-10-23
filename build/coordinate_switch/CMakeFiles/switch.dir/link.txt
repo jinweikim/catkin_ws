@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/switch.dir/src/switch.cpp.o  -o /home/jinwei/catkin_ws/devel/lib/coordinate_switch/switch -rdynamic 

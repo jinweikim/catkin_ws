@@ -53,16 +53,20 @@ class Robot:
         self.group.set_max_acceleration_scaling_factor(0.5)
         self.group.set_max_velocity_scaling_factor(0.5)
 
-        add_result = self.add_box()
+        add_result = self.add_box('box1')
 
-        print "if add box: %s" % add_result
+        # print "if add box: %s" % add_result
 
     def go(self,target_pose):
 
         self.group.set_start_state_to_current_state()
-        self.group.set_pose_target(target_pose,self.end_effector_link)
-        traj = self.group.plan()
-        self.group.execute(traj,wait=True)
+        self.group.set_pose_target(target_pose)
+        plan = self.group.go(wait=True)
+        # Calling `stop()` ensures that there is no residual movement
+        self.group.stop()
+        # It is always good to clear your targets after planning with poses.
+        # Note: there is no equivalent function for clear_joint_value_targets()
+        self.group.clear_pose_targets()
 
     def pos_to_target_pose(self,pos):
 
@@ -75,16 +79,48 @@ class Robot:
         target_pose.pose.position.y = pos.y
         target_pose.pose.position.z = pos.z
 
+        # target_pose.pose.position.x = 0.20
+        # target_pose.pose.position.y = 0.16
+        # target_pose.pose.position.z = 0.24
+
         #print "roll: %s, pitch: %s, yaw: %s" % (pos.roll,pos.pitch,pos.yaw)
 
         q = quaternion_from_euler(pos.roll,pos.pitch,pos.yaw)
+        # q = quaternion_from_euler(0,0,1.57)
+
+        print("eluer to quaternion")
 
         target_pose.pose.orientation.x = q[0]
         target_pose.pose.orientation.y = q[1]
         target_pose.pose.orientation.z = q[2]
         target_pose.pose.orientation.w = q[3]
 
+        # target_pose.pose.orientation.x = 0.0
+        # target_pose.pose.orientation.y = 0.0
+        # target_pose.pose.orientation.z = 0.0
+        # target_pose.pose.orientation.w = 1.0
+
         return target_pose
+
+    def goHome(self):
+
+        group = self.group
+
+        joint_goal = group.get_current_joint_values()
+            
+        joint_goal[0] = 0
+        joint_goal[1] = 0
+        joint_goal[2] = 0
+        joint_goal[3] = 0
+        joint_goal[4] = 0
+        joint_goal[5] = 0
+
+        #-1.68602366327 2.1734413774 -1.49991589924 -1.70095518518 -1.53124549999 -0.785432329752]     
+
+        group.go(joint_goal, wait=True)
+
+        # Calling ``stop()`` ensures that there is no residual movement
+        group.stop()
 
     def move(self,position):    
 
@@ -106,6 +142,7 @@ class Robot:
         if position == 'hide':
             # We can get the joint values from the group and adjust some of the values:
             joint_goal = group.get_current_joint_values()
+            
             joint_goal[0] =  -1.686
             joint_goal[1] = 2.173
             joint_goal[2] = -1.50
@@ -115,8 +152,6 @@ class Robot:
 
             #-1.68602366327 2.1734413774 -1.49991589924 -1.70095518518 -1.53124549999 -0.785432329752]     
 
-            # The go command can be called with joint values, poses, or without any
-            # parameters if you have already set the pose or joint target for the group
             group.go(joint_goal, wait=True)
 
             # Calling ``stop()`` ensures that there is no residual movement
@@ -125,8 +160,12 @@ class Robot:
             return 1
 
         print 'x: %s, y: %s,z: %s, roll: %s,pitch: %s, yaw: %s' % (position.x,position.y,position.z,position.roll,position.pitch,position.yaw)
-
+ 
         target_pose = self.pos_to_target_pose(position)
+
+        # self.add_point('point',position)
+
+        print 'x: %s, y: %s,z: %s, ox: %s,oy: %s, oz: %s,ow: %s' % (target_pose.pose.position.x,target_pose.pose.position.y,target_pose.pose.position.z,target_pose.pose.orientation.x,target_pose.pose.orientation.y,target_pose.pose.orientation.z,target_pose.pose.orientation.w)
 
         self.go(target_pose)
         
@@ -136,11 +175,10 @@ class Robot:
 
         return 1
 
-    def add_box(self, timeout=4):
+    def add_box(self, box_name, timeout=4):
         # Copy class variables to local variables to make the web tutorials more clear.
         # In practice, you should use the class variables directly unless you have a good
         # reason not to.
-        box_name = self.box_name
         scene = self.scene
 
         rospy.sleep(2)
@@ -163,23 +201,61 @@ class Robot:
         box_pose.pose.orientation.z = q[2]
         box_pose.pose.orientation.w = q[3]
 
-        box_pose.pose.position.y = -1.0
-        box_pose.pose.position.z = 0.75
+        box_pose.pose.position.y = 0.20
+        box_pose.pose.position.z = 0.25
 
-        box_name = "box"
-        scene.add_box(box_name, box_pose, size=(1.5, 0.1, 1.5))
+        # box_name = "box1"
+        scene.add_box(box_name, box_pose, size=(0.5, 0.01, 0.5))
 
         ## END_SUB_TUTORIAL
         # Copy local variables back to class variables. In practice, you should use the class
         # variables directly unless you have a good reason not to.
-        self.box_name=box_name
-        return self.wait_for_state_update(box_is_known=True, timeout=timeout)
+        return self.wait_for_state_update(box_name,box_is_known=True, timeout=timeout)
 
-    def wait_for_state_update(self, box_is_known=False, box_is_attached=False, timeout=4):
+    def add_point(self, point_name, position, timeout=4):
         # Copy class variables to local variables to make the web tutorials more clear.
         # In practice, you should use the class variables directly unless you have a good
         # reason not to.
-        box_name = self.box_name
+        scene = self.scene
+
+        rospy.sleep(2)
+
+        ## BEGIN_SUB_TUTORIAL add_box
+        ##
+        ## Adding Objects to the Planning Scene
+        ## ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ## First, we will create a box in the planning scene at the location of the left finger:
+
+        roll = math.pi/2 - 1.5707
+
+        q = quaternion_from_euler(roll,0,0)
+
+        box_pose = geometry_msgs.msg.PoseStamped()
+        box_pose.header.frame_id = self.r.get_planning_frame()
+
+        box_pose.pose.orientation.x = q[0]
+        box_pose.pose.orientation.y = q[1]
+        box_pose.pose.orientation.z = q[2]
+        box_pose.pose.orientation.w = q[3]
+
+        box_pose.pose.position.x = position.x
+        box_pose.pose.position.y = position.y
+        box_pose.pose.position.z = position.z
+
+        point_name = "point"
+        scene.add_box(point_name, box_pose, size=(0.01, 0.01, 0.01))
+
+        ## END_SUB_TUTORIAL
+        # Copy local variables back to class variables. In practice, you should use the class
+        # variables directly unless you have a good reason not to.
+        return self.wait_for_state_update(point_name,box_is_known=True, timeout=timeout)
+
+
+    def wait_for_state_update(self, name, box_is_known=False, box_is_attached=False, timeout=4):
+        # Copy class variables to local variables to make the web tutorials more clear.
+        # In practice, you should use the class variables directly unless you have a good
+        # reason not to.
+        box_name = name
         scene = self.scene
 
         ## BEGIN_SUB_TUTORIAL wait_for_scene_update
